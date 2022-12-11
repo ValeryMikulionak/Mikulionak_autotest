@@ -18,7 +18,8 @@
                     <includes>
                         <!--                        <include>AutomatedEngineerTests.java</include>
                                                 <include>ManualEngineerTests.java</include>-->
-                        <include>BaseEngineerTest.java</include>
+                        <include>BookingTest.java</include>
+                        <include>Booking1Test.java</include>
                     </includes>
                 </configuration>
             </plugin>

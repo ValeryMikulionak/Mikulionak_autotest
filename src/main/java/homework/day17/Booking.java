@@ -1,4 +1,4 @@
-package homework;
+package homework.day17;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class Booking {
 
-    public static void main(String[] args) throws InterruptedException {
+    public boolean booky() throws InterruptedException {
 
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DAY_OF_MONTH,5);
@@ -44,14 +44,14 @@ public class Booking {
         Thread.sleep(2000);
 
         if (driver.findElements(By.xpath("//div[@data-component='arp-header']/div/div/div/h1")).isEmpty()) {
-            System.out.println("Отелей нет");
+            return false;
         } else {
-            System.out.println("Отели есть");
             System.out.println(driver.findElement
                             (By.xpath("//div[@data-component='arp-header']/div/div/div/h1"))
                     .getText());
         driver.close();
         driver.quit();
+            return true;
         }
     }
 }

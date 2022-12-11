@@ -1,4 +1,4 @@
-package homework;
+package homework.day17;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class Booking1 {
 
-    public static void main(String[] args) throws InterruptedException {
+    public boolean booky() throws InterruptedException {
 
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DAY_OF_MONTH, 10);
@@ -62,17 +62,22 @@ public class Booking1 {
             String att = driver.findElement
                             (By.xpath("//div[@data-testid='review-score-right-component']/div[1]"))
                     .getAttribute("aria-label");
+
+            driver.switchTo().window(mainTab);
+            driver.quit();
+
             String[] str = att.split(" ");
             System.out.println(str[1]);
             float f = Float.parseFloat(str[1].trim());
             if (f >= 9) {
                 System.out.println("Есть отели с рейтингом выше 9");
+                return true;
             } else {
                 System.out.println("Нет отелей с рейтингом выше 9");
+                return false;
             }
 
-            driver.switchTo().window(mainTab);
-
         }
+        return false;
     }
 }
